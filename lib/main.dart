@@ -1,3 +1,4 @@
+import 'package:Surprisement/ui/IntroScreen1.dart';
 import 'package:Surprisement/ui/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Splash Screen',
-        home: Splash());
+        home: Intro1());
   }
 }
