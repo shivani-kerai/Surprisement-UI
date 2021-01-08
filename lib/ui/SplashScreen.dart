@@ -10,8 +10,8 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    startTime();
     super.initState();
+    startTime();
   }
 
   @override
@@ -29,14 +29,12 @@ class _SplashState extends State<Splash> {
     ));
   }
 
-  void startTime() {
-    Future<Timer> startTime() async {
-      var _duration = new Duration(seconds: 3);
-      return new Timer(_duration, navigationPage);
-    }
+  startTime() async {
+    var _duration = new Duration(seconds: 3);
+    return new Timer(_duration, navigationPage);
   }
 
   navigationPage() {
-    Navigator.of(context).pushReplacementNamed('Intro1()');
+    Navigator.of(context).pushReplacementNamed('/Intro1');
   }
 }
