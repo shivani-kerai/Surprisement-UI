@@ -1,3 +1,4 @@
+import 'package:Surprisement/ui/IntroScreen2.dart';
 import 'package:Surprisement/ui/IntroScreen4.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,8 @@ class _Intro3State extends State<Intro3> {
               padding: const EdgeInsets.only(top: 50.0),
               child: Center(
                 child: BackButton(onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Intro2()));
                 }),
               ),
             ),

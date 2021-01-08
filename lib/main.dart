@@ -1,5 +1,4 @@
 import 'package:Surprisement/ui/IntroScreen1.dart';
-import 'package:Surprisement/ui/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
