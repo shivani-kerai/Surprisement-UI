@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:Surprisement/ui/IntroScreen1.dart';
 import 'package:flutter/material.dart';
 
 class Splash extends StatefulWidget {
@@ -38,6 +37,6 @@ class _SplashState extends State<Splash> {
   }
 
   navigationPage() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Intro1()));
+    Navigator.of(context).pushReplacementNamed('Intro1()');
   }
 }
