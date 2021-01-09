@@ -51,38 +51,43 @@ class _Intro3State extends State<Intro3> {
                 ),
               ],
             ),
-            Center(
-              child: RaisedButton(
+            Column(
+              children: [
+                Center(
+                  child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Intro4()));
+                      },
+                      color: Colors.teal.shade400,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 100.0, right: 100.0),
+                        child: Text("Next",
+                            style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                            )),
+                      )),
+                ),
+                Center(
+                    child: TextButton(
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Intro4()));
                   },
-                  color: Colors.teal.shade400,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 100.0, right: 100.0),
-                    child: Text("Next",
-                        style: TextStyle(
-                          fontSize: 15.0,
-                          color: Colors.white,
-                        )),
-                  )),
+                  child: Text(
+                    "Skip",
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400),
+                  ),
+                )),
+              ],
             ),
-            Center(
-                child: TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Intro4()));
-              },
-              child: Text(
-                "Skip",
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400),
-              ),
-            )),
             Center(
                 child: Image.asset(
               "assets/Rectangle1.png",

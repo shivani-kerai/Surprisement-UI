@@ -29,32 +29,37 @@ class _Intro4State extends State<Intro4> {
               "assets/Logo white 1.png",
               width: 180.0,
             )),
-            Center(
-              child: RaisedButton(
+            Column(
+              children: [
+                Center(
+                  child: RaisedButton(
+                      onPressed: () {},
+                      color: Colors.teal.shade400,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 100.0, right: 100.0),
+                        child: Text("Let's Create an account",
+                            style: TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                            )),
+                      )),
+                ),
+                Center(
+                    child: TextButton(
                   onPressed: () {},
-                  color: Colors.teal.shade400,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 100.0, right: 100.0),
-                    child: Text("Let's Create an account",
-                        style: TextStyle(
-                          fontSize: 15.0,
-                          color: Colors.white,
-                        )),
-                  )),
+                  child: Text(
+                    "Already have an account?-Sign In",
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400),
+                  ),
+                )),
+              ],
             ),
-            Center(
-                child: TextButton(
-              onPressed: () {},
-              child: Text(
-                "Already have an account?-Sign In",
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w400),
-              ),
-            )),
             Center(
                 child: Image.asset(
               "assets/Rectangle1.png",
