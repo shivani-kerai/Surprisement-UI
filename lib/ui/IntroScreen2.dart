@@ -14,36 +14,34 @@ class _Intro2State extends State<Intro2> {
     return Scaffold(
       resizeToAvoidBottomPadding: true,
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 50.0),
-              child: Center(
-                child: BackButton(onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Intro1()));
-                }),
-              ),
+            Center(
+              child: BackButton(onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Intro1()));
+              }),
             ),
             Center(
                 child: Image.asset(
               "assets/Group 32.png",
-              width: 150.0,
+              width: 180.0,
             )),
             Column(
               children: [
                 Center(
                   child: Text(
                     "Easy To Use",
-                    style: TextStyle(fontSize: 40.0),
+                    style:
+                        TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: 80.0, right: 80.0, top: 10.0, bottom: 10.0),
+                  padding: const EdgeInsets.fromLTRB(80.0, 10.0, 80.0, 10.0),
                   child: Center(
                     child: Text(
                       "Manage your bank account,financial transaction,Its all easy like never before",
@@ -64,9 +62,12 @@ class _Intro2State extends State<Intro2> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0)),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 80.0, right: 80.0),
+                    padding: const EdgeInsets.only(left: 100.0, right: 100.0),
                     child: Text("Next",
-                        style: TextStyle(fontSize: 20.0, color: Colors.white)),
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.white,
+                        )),
                   )),
             ),
             Center(
@@ -77,7 +78,10 @@ class _Intro2State extends State<Intro2> {
               },
               child: Text(
                 "Skip",
-                style: TextStyle(fontSize: 15, color: Colors.black),
+                style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400),
               ),
             )),
             Center(
