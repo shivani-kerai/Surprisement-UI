@@ -1,3 +1,4 @@
+import 'package:Surprisement/sign-in/SignUpScreen.dart';
 import 'package:Surprisement/ui/IntroScreen3.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,12 @@ class _Intro4State extends State<Intro4> {
                           offset: Offset(5.0, 5.0))
                     ]),
                     child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Signup()));
+                        },
                         color: Colors.teal.shade400,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
