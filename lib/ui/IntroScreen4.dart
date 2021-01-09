@@ -32,20 +32,28 @@ class _Intro4State extends State<Intro4> {
             Column(
               children: [
                 Center(
-                  child: RaisedButton(
-                      onPressed: () {},
-                      color: Colors.teal.shade400,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0)),
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 100.0, right: 100.0),
-                        child: Text("Let's Create an account",
-                            style: TextStyle(
-                              fontSize: 15.0,
-                              color: Colors.white,
-                            )),
-                      )),
+                  child: Container(
+                    decoration: BoxDecoration(boxShadow: <BoxShadow>[
+                      BoxShadow(
+                          color: Colors.teal.shade400.withOpacity(0.5),
+                          blurRadius: 20,
+                          offset: Offset(5.0, 5.0))
+                    ]),
+                    child: RaisedButton(
+                        onPressed: () {},
+                        color: Colors.teal.shade400,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(left: 100.0, right: 100.0),
+                          child: Text("Let's Create an account",
+                              style: TextStyle(
+                                fontSize: 15.0,
+                                color: Colors.white,
+                              )),
+                        )),
+                  ),
                 ),
                 Center(
                     child: TextButton(
