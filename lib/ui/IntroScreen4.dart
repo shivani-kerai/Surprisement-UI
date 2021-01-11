@@ -11,6 +11,22 @@ class _Intro4State extends State<Intro4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        leading: RaisedButton(
+          elevation: 0.0,
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          color: Colors.transparent,
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Intro3()));
+          },
+        ),
+        backgroundColor: Colors.transparent,
+      ),
       resizeToAvoidBottomPadding: true,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 20.0),
@@ -19,12 +35,6 @@ class _Intro4State extends State<Intro4> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Center(
-              child: BackButton(onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Intro3()));
-              }),
-            ),
             Center(
                 child: Image.asset(
               "assets/Logo white 1.png",
@@ -62,14 +72,17 @@ class _Intro4State extends State<Intro4> {
                   ),
                 ),
                 Center(
-                    child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Already have an account?-Sign In",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400),
+                    child: Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Already have an account?-Sign In",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400),
+                    ),
                   ),
                 )),
               ],
