@@ -1,6 +1,7 @@
 import 'package:Surprisement/sign-in/VarifyAccountScreen.dart';
 import 'package:Surprisement/ui/IntroScreen4.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -11,20 +12,40 @@ class _SignupState extends State<Signup> {
   bool checkBoxValue = false;
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  void validate() {
+  validate() {
     if (formkey.currentState.validate() && checkBoxValue == true) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Varifyaccount()));
-    } else {
-      print('hello');
-    }
-  }
-
-  String fieldvalidate(value) {
-    if (value.isEmpty) {
-      return "required";
-    } else {
-      return null;
+    } else if (formkey.currentState.validate() && checkBoxValue == false) {
+      return showDialog<void>(
+          context: context,
+          barrierDismissible: false, // user must tap button!
+          builder: (BuildContext context) {
+            return AlertDialog(
+              content: Text(
+                'You have to agree with our\nterms and conditions!!!',
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white),
+              ),
+              backgroundColor: Colors.black,
+              actions: <Widget>[
+                TextButton(
+                  child: Text(
+                    'OK',
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.yellowAccent[100]),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          });
     }
   }
 
@@ -50,53 +71,63 @@ class _SignupState extends State<Signup> {
       ),
       resizeToAvoidBottomPadding: false,
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30.0, 60.0, 30.0, 20.0),
+        padding: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 20.0),
         child: Form(
           key: formkey,
+          // ignore: deprecated_member_use
+          autovalidate: true,
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Center(
                 child: Text(
-                  "Welcome!!",
+                  "Welcome!",
                   style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w900),
                 ),
               ),
               Center(
-                child: Text(
-                  "Please provide following\ndetails for your new account",
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400),
-                  textAlign: TextAlign.center,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 60.0),
+                  child: Text(
+                    "Please provide following\ndetails for your new account",
+                    style:
+                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.w400),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               TextFormField(
                 decoration: InputDecoration(
-                    labelText: 'Name',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+                  labelText: 'Name',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                ),
                 autocorrect: true,
                 textDirection: TextDirection.ltr,
-                validator: fieldvalidate,
+                validator: RequiredValidator(errorText: 'Required*'),
               ),
               TextFormField(
                 decoration: InputDecoration(
                     labelText: 'Surname',
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+                        borderRadius: BorderRadius.circular(20.0))),
                 autocorrect: true,
                 textDirection: TextDirection.ltr,
-                validator: fieldvalidate,
+                validator: RequiredValidator(errorText: 'Required*'),
               ),
               TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
-                autocorrect: true,
-                textDirection: TextDirection.ltr,
-                validator: fieldvalidate,
-              ),
+                  decoration: InputDecoration(
+                      labelText: 'Email Address',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                  autocorrect: true,
+                  textDirection: TextDirection.ltr,
+                  validator: MultiValidator([
+                    RequiredValidator(errorText: 'Required*'),
+                    EmailValidator(errorText: 'enter a valid email address')
+                  ])),
               Row(
                 children: [
                   Checkbox(
@@ -111,19 +142,21 @@ class _SignupState extends State<Signup> {
                   Expanded(
                       child: Text.rich(TextSpan(
                           text:
-                              "By creating your account you have to agree\nwith our",
+                              "By creating your account you have to agree\nwith our\t",
                           style: TextStyle(fontSize: 16.0),
                           children: <TextSpan>[
                         TextSpan(
-                            text: " Terms",
+                            text: "Terms",
                             style: TextStyle(
                                 fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline)),
-                        TextSpan(text: " and"),
+                        TextSpan(text: "\tand\t"),
                         TextSpan(
-                            text: " Conditions",
+                            text: "Conditions.",
                             style: TextStyle(
                                 fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
                                 decoration: TextDecoration.underline))
                       ]))),
                 ],
@@ -146,13 +179,15 @@ class _SignupState extends State<Signup> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0)),
                             child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 88.0, right: 88.0),
-                              child: Text("Let's Create an account",
-                                  style: TextStyle(
-                                    fontSize: 15.0,
-                                    color: Colors.white,
-                                  )),
+                              padding: const EdgeInsets.fromLTRB(
+                                  88.0, 16.0, 88.0, 16.0),
+                              child: SizedBox(
+                                child: Text("Let's Create an account",
+                                    style: TextStyle(
+                                      fontSize: 15.0,
+                                      color: Colors.white,
+                                    )),
+                              ),
                             )),
                       ),
                     ),
@@ -176,18 +211,24 @@ class _SignupState extends State<Signup> {
                           color: Colors.black,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset('assets/Facebook.png', height: 30.0),
-                              Text(
-                                "Sign-Up with Facebook",
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                  color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Image.asset('assets/Facebook.png',
+                                    height: 30.0),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 60.0),
+                                  child: Text(
+                                    "Sign-Up with Facebook",
+                                    style: TextStyle(
+                                      fontSize: 15.0,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           )),
                     ),
                   ),
@@ -195,7 +236,7 @@ class _SignupState extends State<Signup> {
               ),
               Center(
                   child: Padding(
-                padding: const EdgeInsets.only(top: 30.0),
+                padding: const EdgeInsets.only(top: 60.0),
                 child: TextButton(
                   onPressed: () {},
                   child: Text.rich(
