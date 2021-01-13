@@ -100,10 +100,21 @@ class _SignupState extends State<Signup> {
               ),
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Name',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                ),
+                    labelText: 'Name',
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.teal),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.teal)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.tealAccent)),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.tealAccent)),
+                    filled: true,
+                    fillColor: Colors.teal.shade50),
                 autocorrect: true,
                 textDirection: TextDirection.ltr,
                 validator: RequiredValidator(errorText: 'Required*'),
@@ -112,16 +123,35 @@ class _SignupState extends State<Signup> {
                 decoration: InputDecoration(
                     labelText: 'Surname',
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0))),
+                        borderSide: BorderSide(color: Colors.teal),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.teal)),
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.teal)),
+                    filled: true,
+                    fillColor: Colors.teal.shade50),
                 autocorrect: true,
                 textDirection: TextDirection.ltr,
                 validator: RequiredValidator(errorText: 'Required*'),
               ),
               TextFormField(
                   decoration: InputDecoration(
-                      labelText: 'Email Address',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0))),
+                    labelText: 'Email Address',
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.teal),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.teal)),
+                    filled: true,
+                    fillColor: Colors.teal.shade50,
+                    errorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.teal)),
+                  ),
                   autocorrect: true,
                   textDirection: TextDirection.ltr,
                   validator: MultiValidator([
