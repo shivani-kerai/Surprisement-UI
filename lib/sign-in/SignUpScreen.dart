@@ -1,4 +1,4 @@
-import 'package:Surprisement/sign-in/VarifyAccountScreen.dart';
+import 'package:Surprisement/sign-in/VerifyAccountScreen.dart';
 import 'package:Surprisement/ui/IntroScreen4.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -15,7 +15,7 @@ class _SignupState extends State<Signup> {
   validate() {
     if (formkey.currentState.validate() && checkBoxValue == true) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Varifyaccount()));
+          context, MaterialPageRoute(builder: (context) => Verifyaccount()));
     } else if (formkey.currentState.validate() && checkBoxValue == false) {
       return showDialog<void>(
           context: context,
@@ -107,14 +107,11 @@ class _SignupState extends State<Signup> {
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0),
                         borderSide: BorderSide(color: Colors.teal)),
-                    focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(color: Colors.tealAccent)),
                     errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(color: Colors.tealAccent)),
+                        borderSide: BorderSide(color: Colors.teal)),
                     filled: true,
-                    fillColor: Colors.teal.shade50),
+                    fillColor: Colors.white),
                 autocorrect: true,
                 textDirection: TextDirection.ltr,
                 validator: RequiredValidator(errorText: 'Required*'),
@@ -132,26 +129,25 @@ class _SignupState extends State<Signup> {
                         borderRadius: BorderRadius.circular(20.0),
                         borderSide: BorderSide(color: Colors.teal)),
                     filled: true,
-                    fillColor: Colors.teal.shade50),
+                    fillColor: Colors.white),
                 autocorrect: true,
                 textDirection: TextDirection.ltr,
                 validator: RequiredValidator(errorText: 'Required*'),
               ),
               TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Email Address',
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.teal),
-                        borderRadius: BorderRadius.circular(20.0)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(color: Colors.teal)),
-                    filled: true,
-                    fillColor: Colors.teal.shade50,
-                    errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(color: Colors.teal)),
-                  ),
+                      labelText: 'Email Address',
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.teal),
+                          borderRadius: BorderRadius.circular(20.0)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: BorderSide(color: Colors.teal)),
+                      errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          borderSide: BorderSide(color: Colors.teal)),
+                      filled: true,
+                      fillColor: Colors.white),
                   autocorrect: true,
                   textDirection: TextDirection.ltr,
                   validator: MultiValidator([
@@ -195,7 +191,7 @@ class _SignupState extends State<Signup> {
                 children: [
                   Center(
                     child: Padding(
-                      padding: const EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(boxShadow: <BoxShadow>[
                           BoxShadow(

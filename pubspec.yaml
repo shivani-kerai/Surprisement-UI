@@ -59,6 +59,9 @@ flutter:
    - assets/Rectangle.png
    - assets/Rectangle1.png
    - assets/Facebook.png 
+   - assets/Success Logo.png
+   - assets/Success Logo2.png
+   - assets/Success Logo3.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
